@@ -1,8 +1,8 @@
 
 export const mainMenu = [
     {
-        "text": "botin",
-        "url": "/botin",
+        "text": "bottin",
+        "url": "/bottin",
     },
     {
         "text": "obtenir des soumissions",

@@ -18,7 +18,7 @@ export default function AppelOffreCard(){
                 </div>
             </div>
             <div className={"flex flex-col px-5 md:flex-row grow justify-around space-y-5"}>
-                <div className={"flex flex-col text-primary pt-5 md:pl-2 border-t-secondary border-t-2 md:border-l-secondary md:border-l-2"}>
+                <div className={"flex flex-col text-primary pt-5 md:pl-2 md:border-l-secondary md:border-l-2"}>
                     <div>SERVICE TRAITEUR</div>
                     <div>Repas chaud, repas froid, alcool, bouchées</div>
                 </div>
