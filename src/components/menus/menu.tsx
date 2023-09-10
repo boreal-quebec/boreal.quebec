@@ -22,11 +22,11 @@ const Menu = ({links} : {links: Array<LinkData>}) => {
     });
 
     return (
-        <div className={"hidden lg:flex lg:flex-col lg:visible lg:h-1/6 shadow-xl shadow-gray-300"}>
+        <div className={"hidden lg:flex lg:flex-col lg:visible shadow-xl shadow-gray-300"}>
             <div>
                 <div className={"flex h-6 bg-primary"}>
                 </div>
-                <div className={"flex items-stretch mt-10 mb-4 justify-center shadow-black divide-x divide-solid divide-secondary-pale"}>
+                <div className={"flex items-stretch mt-10 mb-4 justify-around shadow-black divide-solid divide-secondary-pale"}>
                     <div className={"self-center pr-6"}>
                         <Link href={"/"}>
                             <Image
