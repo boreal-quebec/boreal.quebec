@@ -1,10 +1,13 @@
 import React from "react";
 
-import RegisterButton from "@/components/registerButton";
 import homePageTextData from "@/data/homePageText"
 import HomePageText from "@/components/homePageText";
 import Footer from "@/components/footer";
 import NavFooterBanners from "@/components/NavFooterBanners";
+import HomeHeader from "@/components/homeHeader";
+import Image from "next/image";
+import HomePageTopImage from "../../public/StockHomePageTop.png";
+
 
 export default function Home() {
 
@@ -13,15 +16,9 @@ export default function Home() {
   return (
       <>
           <main className="flex min-h-screen flex-col">
-              <div className={"flex flex-col justify-center items-center bg-beige pt-20 pb-20"}>
-                  <div className={"mb-12"}>
-                      <div className={"h-16 w-16 rounded-full bg-secondary"}></div>
-                  </div>
-                  <h1 className={"text-primary font-medium text-center text-2xl md:text-3xl px-8"}>Bottin des restaurateurs alternatifs du Québec</h1>
-                  <div className={"flex flex-col lg:flex-row items-stretch mt-28"}>
-                      <RegisterButton link={"/devenir-membre/client"} prefix={"Je suis"} type={"Client"} color={"secondary"} position={"end"} phrase={"Obtenez des soumissions de restaurateurs."} loginPhrase={"Je suis déjà membre client"}  />
-                      <RegisterButton link={"/devenir-membre/restaurateur"} prefix={"Je suis"} type={"Restaurateur"} color={"primary"} position={"start"} phrase={"Appliquez sur des appels d’offres de clients."} loginPhrase={"Je suis déjà membre restaurateur"} />
-                  </div>
+              <HomeHeader title={"Bottin de la restauration alternative du Québec"} phrase={"Plateforme québecoise d’appels d’offre pour des services de restauration\n"}/>
+              <div className={"flex"}>
+                  <Image className={"w-full h-full"} src={HomePageTopImage} alt={""}  />
               </div>
               <div className={"flex flex-col xl:flex-row justify-center items-center md:p-16 lg:p-24"}>
                   <div className={"flex flex-col py-10 lg:py-0 xl:w-1/2 xl:text-left items-center xl:items-start justify-stretch"}>
@@ -34,6 +31,9 @@ export default function Home() {
                   </div>
               </div>
               <NavFooterBanners />
+              <div className={"flex"}>
+                  <Image className={"w-full h-full"} src={HomePageTopImage} alt={""}  />
+              </div>
               <Footer />
           </main>
       </>

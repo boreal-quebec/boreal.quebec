@@ -5,36 +5,50 @@ import {serviceSearchResult} from "@/data/serviceSearchResult";
 import SearcResultCard from "@/components/searcResultCard";
 import Image from "next/image";
 import badge from '@/../public/badge.png'
+import {BigButton} from "@/components/bigButton";
 
 export default function RechercheBottinForm(){
     const searchResults = serviceSearchResult.map((result) => (<SearcResultCard key={result.key} companyName={result.key}/>))
 
     return (
         <div className={"flex flex-col lg:flex-row justify-between items-stretch mt-12 grow px-5 md:px-12 sm:px-24 lg:p-0"}>
-            <div className={"lg:w-1/5"}>
-                <div className={"flex flex-col bg-white rounded-tl-3xl md:rounded-none rounded-tr-3xl pt-6 px-6"}>
-                    <button className={"bg-secondary rounded-xl text-left p-4 text-white"}>Publier un appel d’offre</button>
-                    <p className={"text-primary text-left font-medium px-8 py-4 text-lg lg:pt-4"}>Gagnez du temps. Recevez gratuitement et sans engagement des soumissions de restaurateurs selon vos critères.</p>
-                </div>
-                <div className={"flex flex-col items-stretch justify-stretch bg-primary p-6"}>
+            <div className={"flex flex-col lg:w-1/4"}>
+                <BigButton
+                    prefix={"PUBLIER UN\nAPPEL D’OFFRE"}
+                    phrase={"Gagnez du temps.\nRecevez gratuitement et sans engagement des soumissions de restaurateurs."}
+                    position={"left"}
+                    color={"secondary"}
+                    link={"/a-propos"}
+                    cutLeft={true}
+                />
+                <div className={"py-2"}></div>
+                <BigButton
+                    prefix={"FIGURER SUR LE\nBOTTIN"}
+                    phrase={"Soyez visible.\nProfitez gratuitement d’une plateforme crédible afin d’être répertorié."}
+                    position={"left"}
+                    color={"primary"}
+                    link={"/a-propos"}
+                    cutLeft={true}
+                />
+                <div className={"py-8"}></div>
+                <div className={"flex flex-col items-stretch justify-stretch bg-beige p-16"}>
+                    <h2 className={"text-3xl text-secondary border-b-secondary border-b-2 text-center pb-3"}>Recherche</h2>
                     <form className={"flex flex-col items-stretch justify-stretch"}>
-                        <div className={"flex items-start space-x-1.5 mb-4"}>
-                            <div>
-                                <input type={"checkbox"} className={"pt-1"}/>
-                            </div>
-                            <div className={"flex flex-col mr-4"}>
-                                <span className={"text-white"}>afficher uniquement les profils <span className={"text-secondary"}>restaurateurs+<Image className={"flex"} width={15} height={15} src={badge} alt={"badge"} /></span> </span>
-                                <a href={""} className={"text-white"}>qu’est-ce qu’un restaurateur+</a>
-                            </div>
-                        </div>
-                        <Dropdown label={"type de produit"} values={["Type de produit", "Food truck", "Chefs privée", "Autre"]} name={"produit"} />
-                        <Dropdown label={"type de service"} values={["Type de service", "Traiteur", "Café et patisseries", "Autre"]} name={"service"} />
-                        <Input label={"région"} placeholder={"Code postal de l'évènement"} name={"region"} type="text" />
+                       <div className={"flex p-4"}>
+                           <div className={"flex flex-col justify-center text-primary"}>
+                               <div>Afficher les profils vérifiés</div>
+                               <div><a href={"/a-propos"} className={"text-xs text-gray-500"}>Qu'est-ce qu'un profil vérifié?</a></div>
+                           </div>
+                           <div>
+                               non
+                           </div>
+                       </div>
+                        <Dropdown values={["Type(s) de produit", "Food truck", "Chefs privée", "Autre"]} name={"produit"} />
+                        <Dropdown values={["Type(s) de service", "Traiteur", "Café et patisseries", "Autre"]} name={"service"} />
+                        <Dropdown values={["Région(s)", "Traiteur", "Café et patisseries", "Autre"]} name={"region"} />
+                        <a href={"/a-propos"} className={"text-sm text-primary underline pl-4"}>Préciser la recherche</a>
+                        <button type={"submit"} className={"bg-primary rounded-2xl p-4 text-2xl tracking-widest text-white mt-4"}>Rechercher</button>
                     </form>
-                </div>
-                <div className={"flex flex-col bg-white rounded-bl-3xl md:rounded-none rounded-br-3xl p-6"}>
-                    <button className={"bg-secondary rounded-xl text-left p-4 text-white"}>Faire partie du bottin</button>
-                    <p className={"text-primary text-left font-medium px-8 py-4 text-lg lg:pt-4"}>Soyez visible. Profitez gratuitement d’une plateforme crédible afin d’être répertorié selon votre offre de service.</p>
                 </div>
             </div>
             <div className={"lg:grow lg:ml-6"}>

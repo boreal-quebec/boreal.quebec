@@ -15,9 +15,20 @@ interface LinkData{
 const Menu = ({links} : {links: Array<LinkData>}) => {
 
 
-    const menu = links.map((link) => {
+    const menu = links.map((link, index) => {
+        if(index != links.length-1){
+            return (
+                <div className={"flex items-center"}>
+                    <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
+                    <div className={"h-1 w-1 rounded-full bg-secondary"}></div>
+                </div>
+            )
+        }
+
         return (
-            <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
+            <div className={"flex items-center"}>
+                <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
+            </div>
         )
     });
 
@@ -26,8 +37,8 @@ const Menu = ({links} : {links: Array<LinkData>}) => {
             <div>
                 <div className={"flex h-6 bg-primary"}>
                 </div>
-                <div className={"flex items-stretch mt-10 mb-4 justify-around shadow-black divide-solid divide-secondary-pale"}>
-                    <div className={"self-center pr-6"}>
+                <div className={"flex items-center h-20 justify-around shadow-black divide-solid divide-secondary-pale"}>
+                    <div className={"flex items-center h-1/2"}>
                         <Link href={"/"}>
                             <Image
                                 src={logo}
@@ -37,10 +48,10 @@ const Menu = ({links} : {links: Array<LinkData>}) => {
                             />
                         </Link>
                     </div>
-                    <div className={"text-sm text-primary self-center items-center"}>
+                    <div className={"flex h-1/2 text-sm text-primary self-center items-center border-l-2 border-r-2 border-secondary"}>
                         {menu}
                     </div>
-                    <div className={"flex pl-6 justify-center items-center"}>
+                    <div className={"flex h-1/2 pl-6 justify-center items-center"}>
                         <MenuLoginStatus />
                     </div>
                 </div>

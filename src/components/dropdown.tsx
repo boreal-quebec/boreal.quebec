@@ -6,7 +6,7 @@ const Dropdown = ({ label, values, name, ...props}:{label: string, values: Array
    return(
        <>
            <label htmlFor={name} className={"text-white px-2 mb-1 "}>{label}</label>
-           <select {...props} className={"rounded-md text-sm text-primary py-2.5 px-2 mb-3"}>
+           <select {...props} className={"rounded-xl bg-white text-lg text-gray-600 text-opacity-70 p-4 mb-3"}>
                {options}
            </select>
        </>

@@ -21,7 +21,6 @@ const RegisterButton = ({prefix, type, phrase, loginPhrase, color, position, lin
                     <p className={"border-t-2 border-t-white pt-2"}>{phrase}</p>
                 </div>
             </Link>
-            <Link className={"mb-4 mt-2 text-xs text-primary underline underline-offset-1"} href={`/login`}>{loginPhrase}</Link>
         </div>
     );
 }

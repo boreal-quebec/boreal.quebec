@@ -7,7 +7,7 @@ import {faStar as faStarSolid} from "@fortawesome/free-solid-svg-icons";
 
 const SearcResultCard = ({ companyName}:{companyName: string}) => {
     return (
-        <div className={"flex flex-col items-stretch bg-white rounded-3xl"}>
+        <div className={"flex flex-col items-stretch bg-white rounded-3xl shadow-xl shadow-gray-600"}>
             <div className={"flex h-56 w-full relative"}>
                 <Image className={"object-cover rounded-t-3xl"} src={"https://placehold.co/450x250/000000/FFF.svg"} alt={"logo"} fill/>
             </div>
