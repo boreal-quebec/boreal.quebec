@@ -1,23 +1,19 @@
 
 export const mainMenu = [
     {
-        "text": "bottin",
+        "text": "Bottin",
         "url": "/bottin",
     },
     {
-        "text": "obtenir des soumissions",
-        "url": "/soumissions",
-    },
-    {
-        "text": "appels d’offre",
+        "text": "Appels d’offres",
         "url": "/appels-offre",
     },
     {
-        "text": "fonctionnement",
+        "text": "La platforme",
         "url": "/fonctionnement",
     },
     {
-        "text": "blog",
+        "text": "Blog",
         "url": "/blog",
     }
 ];

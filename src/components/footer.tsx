@@ -2,12 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.svg";
 import React from "react";
+import HomePageTopImage from "../../public/StockHomePageTop.png";
 
 
 export default function Footer(){
 
     return(
         <div>
+            <div className={"flex"}>
+                <Image className={"w-full h-full"} src={HomePageTopImage} alt={""}  />
+            </div>
             <div className={"flex justify-center bg-primary-800 p-10"}>
                 <div className={"flex w-11/12 justify-between mt-4"}>
                     <div className={"justify-self-start pr-6"}>

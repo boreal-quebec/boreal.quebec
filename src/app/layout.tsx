@@ -8,6 +8,7 @@ import Navbar from "@/components/menus/navbar";
 import React from "react";
 import Test from "@/components/test";
 import {NextAuthProvider} from "@/app/provider";
+import Footer from "@/components/footer";
 config.autoAddCss = false
 
 
@@ -28,7 +29,10 @@ export default function RootLayout({
       <body className={inter.className}>
       <NextAuthProvider>
           <Navbar />
-          {children}
+          <main className="flex min-h-screen flex-col">
+            {children}
+          </main>
+          <Footer />
       </NextAuthProvider>
       </body>
     </html>

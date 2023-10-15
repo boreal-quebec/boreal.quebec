@@ -1,15 +1,18 @@
-import Image from "next/image";
-import badge from "../../../public/badge.png";
+"use client"
 import Dropdown from "@/components/dropdown";
-import Input from "@/components/Input";
-import React from "react";
-import Link from "next/link";
+import React, {useState} from "react";
 import AppelOffreCard from "@/components/cards/appelOffre";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBackward, faForward} from "@fortawesome/free-solid-svg-icons";
+import Header from "@/components/header";
+import PageTemplate from "@/components/pageTemplate";
+import {BigButton} from "@/components/bigButton";
+import PageLeftColumn from "@/components/layout/pageLeftColumn";
+import SearchResults from "@/components/forms/searchResults";
+import AppelOffreModal from "@/components/modals/appelOffreModal";
 
 
 export default function AppelOffer() {
+    const [showAppelOffreModal, setShowAppelOffreModal] = useState(false)
+    const [appelOffreId, setAppelOffreId] = useState("")
 
     const offres = [
         {},
@@ -18,75 +21,88 @@ export default function AppelOffer() {
         {},
         {},
         {},
+        {},
+        {},
+        {},
+        {},
     ]
 
-    const appelOffreCards = offres.map((o) => <AppelOffreCard />)
+    const onAppelOffreClicked = (id: string) => {
+        setAppelOffreId(id)
+        setShowAppelOffreModal(true)
+    }
+
+    const onCloseAppelOffreClicked = () => {
+        setAppelOffreId("")
+        setShowAppelOffreModal(false)
+    }
+
+    const cardSpacing = "space-y-5";
+    const appelOffreCards = offres.map((o) => <AppelOffreCard onClick={onAppelOffreClicked}/>)
+
+    const publishButton = (
+        <BigButton
+            prefix={"PUBLIER UN\nAPPEL D’OFFRE"}
+            phrase={"Gagnez du temps.\nRecevez gratuitement et sans engagement des soumissions de restaurateurs."}
+            position={"left"}
+            color={"secondary"}
+            link={"/a-propos"}
+            cutLeft={true}
+        />
+    )
+
+    const becomeMemberButton = (
+        <BigButton
+            prefix={"FIGURER SUR LE\nBOTTIN"}
+            phrase={"Soyez visible.\nProfitez gratuitement d’une plateforme crédible afin d’être répertorié."}
+            position={"left"}
+            color={"primary"}
+            link={"/a-propos"}
+            cutLeft={true}
+        />
+    )
+
+    return (
+        <PageTemplate title={"Appels d’offres"} phrase={"Profitez de la plus importante plateforme québecoise d’appels d’offres pour des services de restauration alternative"}>
+            {showAppelOffreModal ? <AppelOffreModal onClickClose={onCloseAppelOffreClicked} /> : null}
+            <div className={"flex flex-row"}>
+                <PageLeftColumn bigButtons={[publishButton, becomeMemberButton]}>
+                    <div className={"py-8"}></div>
+                    <div className={"flex flex-col items-stretch justify-stretch bg-beige p-16"}>
+                        <h2 className={"text-3xl text-secondary border-b-secondary border-b-2 text-center pb-3"}>Recherche</h2>
+                        <form className={"flex flex-col items-stretch justify-stretch"}>
+                            <div className={"flex p-4"}>
+                                <div className={"flex flex-col justify-center text-primary"}>
+                                    <div>Afficher les profils vérifiés</div>
+                                    <div><a href={"/a-propos"} className={"text-xs text-gray-500"}>Qu'est-ce qu'un profil vérifié?</a></div>
+                                </div>
+                                <div>
+                                    non
+                                </div>
+                            </div>
+                            <Dropdown values={["Type(s) de produit", "Food truck", "Chefs privée", "Autre"]} name={"produit"} />
+                            <Dropdown values={["Type(s) de service", "Traiteur", "Café et patisseries", "Autre"]} name={"service"} />
+                            <Dropdown values={["Région(s)", "Traiteur", "Café et patisseries", "Autre"]} name={"region"} />
+                            <a href={"/a-propos"} className={"text-sm text-primary underline pl-4"}>Préciser la recherche</a>
+                            <button type={"submit"} className={"bg-primary rounded-2xl p-4 text-2xl tracking-widest text-white mt-4"}>Rechercher</button>
+                        </form>
+                    </div>
+                </PageLeftColumn>
+                <div className={"lg:grow lg:ml-6"}>
+                    <SearchResults>
+                        <div className={`${cardSpacing}`}>
+                            {appelOffreCards}
+                        </div>
+                    </SearchResults>
+                </div>
+            </div>
+        </PageTemplate>
+    )
 
     return (
         <main className={"flex min-h-screen flex-col bg-beige"}>
-            <div className={"flex flex-col justify-center items-center pt-20 pb-20"}>
-                <div className={"mb-12"}>
-                    <div className={"h-16 w-16 rounded-full bg-secondary"}></div>
-                </div>
-                <h1 className={"text-white font-medium text-center text-2xl md:text-4xl px-8"}>appels d’offres</h1>
-                <h1 className={"text-primary font-medium text-center text-2xl px-8 md:w-1/2"}>Profitez de la plus importante plateforme québecoise d’appels d’offres pour des services de restauration alternative</h1>
-            </div>
-            <div className={"flex flex-col lg:flex-row justify-between items-stretch mt-12 grow px-12 px-6 lg:p-0"}>
-                <div className={"lg:w-1/5"}>
-                    <div className={"flex flex-col bg-white rounded-3xl md:rounded-none md:rounded-tr-3xl md:rounded-br-3xl pt-6 px-6"}>
-                        <div className={"flex flex-col"}>
-                            <Link href={`/register/`}>
-                                <div className={`flex flex-col bg-primary text-white rounded-lg mr-2 px-8 py-7`}>
-                                    <h1 className={"text-3xl"}>RECHERCHER</h1>
-                                    <h1 className={"text-2xl whitespace-nowrap"}>DES APPELS D'OFFRES</h1>
-                                </div>
-                            </Link>
-                            <p className={"flex text-primary py-5 md:py-0 lg:px-3 lg:my-7"}>
-                                Trouvez des clients.
-                                Envoyez des soumissions et obtenez facilement des contrats sans aucun intermédiaire ni commision.
-                            </p>
-                            <Link href={`/register/`}>
-                                <div className={`flex flex-col bg-secondary text-white rounded-lg mr-2 px-8 py-7`}>
-                                    <h1 className={"text-3xl"}>PUBLIER</h1>
-                                    <h1 className={"text-2xl whitespace-nowrap"}>DES APPELS D’OFFRES</h1>
-                                </div>
-                            </Link>
-                            <p  className={"flex text-primary py-5 md:py-0 lg:px-3 lg:my-7"} >
-                                Gagnez du temps.
-                                Recevez gratuitement et sans engagement des soumissions de restaurateurs selon
-                                vos critères.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className={"lg:grow lg:ml-6"}>
-                    <div className="flex flex-col mt-6 lg:mt-0">
-                        <div className={"md:mr-10"}>
-                            {appelOffreCards}
-                        </div>
-                        <div className={"flex my-10 md:mr-10"}>
-                            <div>
-                                <button>
-                                    <FontAwesomeIcon className={"bg-primary text-white text-xl rounded-full p-2"} icon={faBackward} />
-                                </button>
-                            </div>
-                            <div className={"flex grow justify-center space-x-5 text-primary"}>
-                                <button className={"border-b-secondary border-b-2"}>1</button>
-                                <button>2</button>
-                                <button>3</button>
-                                <button>4</button>
-                                <button>5</button>
-                                <button>6</button>
-                            </div>
-                            <div>
-                                <button>
-                                    <FontAwesomeIcon className={"bg-primary text-white text-xl rounded-full p-2"} icon={faForward} />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Header title={"Appels d’offres"} phrase={"Profitez de la plus importante plateforme québecoise d’appels d’offres pour des services de restauration alternative"}/>
+
         </main>
     )
 }

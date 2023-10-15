@@ -3,9 +3,8 @@ import React from "react";
 
 interface BigButtonProps {
     prefix: string,
-    type: string,
+    type?: string,
     phrase: string,
-    loginPhrase: string,
     color: string,
     position: string
     link: string,

@@ -4,47 +4,67 @@ import {faLocationDot, faSquareCheck, faStar as faStarSolid} from "@fortawesome/
 import React from "react";
 import {faUser} from "@fortawesome/free-regular-svg-icons";
 
+type OnClickCallback = (id: string) => void
+interface AppelOffreCardProps{
+    size?: string,
+    onClick?: OnClickCallback
+}
 
-export default function AppelOffreCard(){
+export default function AppelOffreCard({onClick, size = "normal"} : AppelOffreCardProps){
+
+    const innerTextLeftPadding = "pl-2"
+    const orangeBorder = "md:border-l-secondary md:border-l-2"
+    const sizePreset = {
+        normal: {
+            titleSize: "text-xl",
+            boxMargin: "mt-7 mb-7"
+        },
+        small: {
+            titleSize: "text-xs",
+            boxMargin: "mt-7 mb-7"
+        }
+    }
+
+    const cursor = onClick ? "cursor-pointer" : ""
+
     return(
-        <div className={"flex flex-col md:flex-row items-stretch bg-white rounded-3xl py-5 mb-3"}>
-            <div className={"flex items-center px-5 py-2 md:pr-10 md:pl-3"}>
-                <div>
-                    <div className={"h-7 w-7 rounded-full bg-secondary"}></div>
-                </div>
-                <div className={"flex space-x-1.5 md:flex-col text-secondary pl-2"}>
-                    <div>ACTIF</div>
+        <div onClick={() => onClick?.("")} className={`flex ${cursor} bg-white justify-center rounded-5xl shadow-xl shadow-gray-300`}>
+            <div className={`flex ${sizePreset[size].boxMargin} basis-1/12 px-6`}>
+                <div className={"h-7 w-7 rounded-full bg-secondary"}></div>
+                <div className={`flex flex-col text-secondary pl-2 ${innerTextLeftPadding}`}>
+                    <div className={"font-bold"}>ACTIF</div>
                     <div>14/08/2023</div>
                 </div>
             </div>
-            <div className={"flex flex-col px-5 md:flex-row grow justify-around space-y-5"}>
-                <div className={"flex flex-col text-primary pt-5 md:pl-2 md:border-l-secondary md:border-l-2"}>
-                    <div>SERVICE TRAITEUR</div>
-                    <div>Repas chaud, repas froid, alcool, bouchées</div>
-                </div>
-                <div className={"flex flex-col space-y-2 justify-center"}>
-                    <div className={"flex items-center bg-primary rounded-3xl px-5 py-1"}>
+            <div className={`flex flex-col basis-5/12 text-primary ${sizePreset[size].boxMargin} ${innerTextLeftPadding} ${orangeBorder}`}>
+                <div className={`font-bold ${sizePreset[size].titleSize} `}>SERVICE TRAITEUR</div>
+                <div className={`${sizePreset[size].titleSize}`}>Repas chaud, repas froid, alcool, bouchées</div>
+            </div>
+            <div className={"flex basis-3/12 bg-beige px-4"}>
+                <div className={`flex flex-col justify-center space-y-3`}>
+                    <div className={"flex items-center px-5"}>
                         <FontAwesomeIcon className={"text-secondary mr-2"} icon={faLocationDot} />
-                        <div className={"text-white"}>LES LAURENTIDES</div>
+                        <div className={`text-primary ${sizePreset[size].titleSize}`}>Les Laurentides</div>
                     </div>
-                    <div className={"flex items-center bg-primary rounded-3xl px-5 py-1"}>
+                    <div className={"flex items-center px-5"}>
                         <FontAwesomeIcon className={"text-secondary mr-2"} icon={faSquareCheck} />
-                        <div className={"text-white"}>16 septembre 2023</div>
+                        <div className={`text-primary ${sizePreset[size].titleSize}`}>16 septembre 2023</div>
                     </div>
-                    <div className={"flex items-center bg-primary rounded-3xl px-5 py-1"}>
+                    <div className={"flex items-center px-5"}>
                         <FontAwesomeIcon className={"text-secondary mr-2"} icon={faUser} />
-                        <div className={"text-white"}>120 personnes</div>
+                        <div className={`text-primary ${sizePreset[size].titleSize}`}>120 personnes</div>
                     </div>
                 </div>
-                <div className={"flex flex-col justify-between"}>
-                    <div>
-                        <div>Budget de 3 000$ à 4 000$</div>
-                        <div>Facture unique</div>
-                    </div>
-                    <div className={"pt-5 md:pt-0"}>
-                        <div>Date limite: 15 septembre 2023</div>
-                        <div>Soumissions: 0</div>
-                    </div>
+
+            </div>
+            <div className={`flex flex-col basis-3/12 px-4 ${sizePreset[size].boxMargin}`}>
+                <div>
+                    <div className={`${sizePreset[size].titleSize} font-bold text-primary`}>Budget de <br/>3 000$ à 4 000$</div>
+                    <div className={"font-semibold text-primary"}>Facture unique</div>
+                </div>
+                <div className={`${sizePreset[size].titleSize} text-gray-500 mt-5 md:pt-0`}>
+                    <div>Date limite: 15 septembre 2023</div>
+                    <div>Soumissions: 3</div>
                 </div>
             </div>
         </div>
