@@ -8,7 +8,7 @@ import Navbar from "@/components/menus/navbar";
 import React from "react";
 import Test from "@/components/test";
 import {NextAuthProvider} from "@/app/provider";
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 config.autoAddCss = false
 
 

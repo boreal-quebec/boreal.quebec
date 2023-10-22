@@ -1,5 +1,5 @@
 import RechercheBottinForm from "@/components/forms/rechercheBottin";
-import Header from "@/components/header";
+import Header from "@/components/layout/header";
 import PageTemplate from "@/components/pageTemplate";
 import PageLeftColumn from "@/components/layout/pageLeftColumn";
 import {BigButton} from "@/components/bigButton";
@@ -11,7 +11,8 @@ export default function Botin() {
 
     const appelOffre = (
         <BigButton
-            prefix={"PUBLIER UN\nAPPEL D’OFFRE"}
+            prefix={"PUBLIER UN"}
+            type={"APPEL D’OFFRE"}
             phrase={"Gagnez du temps.\nRecevez gratuitement et sans engagement des soumissions de restaurateurs."}
             position={"left"}
             color={"secondary"}
@@ -22,7 +23,8 @@ export default function Botin() {
 
     const figurerBottin = (
         <BigButton
-            prefix={"FIGURER SUR LE\nBOTTIN"}
+            prefix={"FIGURER SUR LE"}
+            type={"BOTTIN"}
             phrase={"Soyez visible.\nProfitez gratuitement d’une plateforme crédible afin d’être répertorié."}
             position={"left"}
             color={"primary"}

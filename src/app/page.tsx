@@ -2,11 +2,11 @@ import React from "react";
 
 import homePageTextData from "@/data/homePageText"
 import HomePageText from "@/components/homePageText";
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 import NavFooterBanners from "@/components/NavFooterBanners";
 import HomeHeader from "@/components/homeHeader";
 import Image from "next/image";
-import HomePageTopImage from "../../public/StockHomePageTop.png";
+import HomePageTopImage from "../../public/photos/GrazingTable_HomePage.jpg";
 
 
 export default function Home() {
@@ -16,8 +16,8 @@ export default function Home() {
   return (
       <>
           <HomeHeader title={"Bottin de la restauration alternative du Québec"} phrase={"Plateforme québecoise d’appels d’offre pour des services de restauration\n"}/>
-          <div className={"flex"}>
-              <Image className={"w-full h-full"} src={HomePageTopImage} alt={""}  />
+          <div className={"flex w-full h-96"}>
+              <Image className={"overflow-hidden object-cover"} src={HomePageTopImage} alt={""}  />
           </div>
           <div className={"flex flex-col xl:flex-row justify-center items-center md:p-16 lg:p-24"}>
               <div className={"flex flex-col py-10 lg:py-0 xl:w-1/2 xl:text-left items-center xl:items-start justify-stretch"}>

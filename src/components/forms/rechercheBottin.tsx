@@ -6,6 +6,7 @@ import SearcResultCard from "@/components/searcResultCard";
 import Image from "next/image";
 import badge from '@/../public/badge.png'
 import {BigButton} from "@/components/bigButton";
+import ToggleInput from "@/components/toggleInput";
 
 export default function RechercheBottinForm(){
 
@@ -17,10 +18,7 @@ export default function RechercheBottinForm(){
                 <div className={"flex p-4"}>
                     <div className={"flex flex-col justify-center text-primary"}>
                         <div>Afficher les profils vérifiés</div>
-                        <div><a href={"/a-propos"} className={"text-xs text-gray-500"}>Qu'est-ce qu'un profil vérifié?</a></div>
-                    </div>
-                    <div>
-                        non
+                        <div><a href={"/a-propos"} className={"text-xs text-gray-500"}>Qu&lsquo;est-ce qu&lsquo;un profil vérifié?</a></div>
                     </div>
                 </div>
                 <Dropdown values={["Type(s) de produit", "Food truck", "Chefs privée", "Autre"]} name={"produit"} />

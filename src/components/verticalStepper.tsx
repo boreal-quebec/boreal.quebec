@@ -43,7 +43,7 @@ const VerticalStepper = ({children, circleColor, circleFontColor} : VerticalStep
         else if(i == arrayChildren.length-1){
             steps.push((
                 <div className={`flex items-center border-l-2 ${borderColor[circleColor]} pt-7`}>
-                    <div className={`flex self-end relative right-7 justify-center items-center ${circleSize} ${circleBgColor[circleColor]} rounded-full`}>
+                    <div className={`flex self-start relative right-7 justify-center items-center ${circleSize} ${circleBgColor[circleColor]} rounded-full`}>
                         <div className={`${circleTextColor[circleFontColor]} text-center text-4xl`}>{i+1}</div>
                     </div>
                     <div className={"flex basis-1/2"}>
@@ -55,7 +55,7 @@ const VerticalStepper = ({children, circleColor, circleFontColor} : VerticalStep
         else {
             steps.push((
                 <div className={`flex items-center border-l-2 ${borderColor[circleColor]} py-7`}>
-                    <div className={`flex relative right-7 justify-center items-center ${circleSize} ${circleBgColor[circleColor]} rounded-full`}>
+                    <div className={`flex self-start relative right-7 justify-center items-center ${circleSize} ${circleBgColor[circleColor]} rounded-full`}>
                         <div className={`${circleTextColor[circleFontColor]} text-center text-4xl`}>{i+1}</div>
                     </div>
                     <div className={"flex basis-1/2"}>

@@ -10,12 +10,14 @@ import MenuLoginStatus from "@/components/menus/menuLoginStatus";
 interface LinkData{
     url: string,
     text: string
+    subMenu?: object
 }
 
 const Menu = ({links} : {links: Array<LinkData>}) => {
 
 
     const menu = links.map((link, index) => {
+
         if(index != links.length-1){
             return (
                 <div className={"flex items-center"}>
@@ -30,6 +32,7 @@ const Menu = ({links} : {links: Array<LinkData>}) => {
                 <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
             </div>
         )
+
     });
 
     return (
