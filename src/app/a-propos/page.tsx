@@ -13,7 +13,7 @@ import NavFooterBanners from "@/components/NavFooterBanners";
 export default function Fonctionnement() {
 
 
-    const homePageTexts = pageTextData.map((text) => <HomePageText title={text.title} paragraph={text.paragraph} />)
+    const homePageTexts = pageTextData.map((text) => <HomePageText key={text.title} title={text.title} paragraph={text.paragraph} />)
 
 
     return (

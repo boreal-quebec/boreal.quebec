@@ -1,38 +1,76 @@
+"use client"
+
 import Image from "next/image";
 import logo from "../../../public/logo.svg";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-regular-svg-icons";
-import React from "react";
+import React, {ReactElement, useContext} from "react";
 import Link from "next/link";
 import {useSession} from "next-auth/react";
 import MenuLoginStatus from "@/components/menus/menuLoginStatus";
+import {JSXElement} from "@babel/types";
+import Dropdown from "@/components/dropdown";
+import MenuDropdown, {DropdownLinkData} from "@/components/menus/menuDropdown";
+import {LaunchContext} from "@/components/providers";
 
-interface LinkData{
-    url: string,
+export interface LinkData{
+    url?: string,
+    type: string
     text: string
     subMenu?: object
 }
 
 const Menu = ({links} : {links: Array<LinkData>}) => {
 
+    let openLaunchModal = useContext(LaunchContext);
 
-    const menu = links.map((link, index) => {
+    const generateLink = (link : LinkData, index: number) : ReactElement => {
+        if(link.url != undefined && link.url != ""){
+            return <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
+        }
+
+        return <Link  key={index} href={""} className={"mx-5"} onClickCapture={(e) => {e.preventDefault(); openLaunchModal();}}>{link.text}</Link>
+    }
+
+
+    const generateDropdown = (link : LinkData) : ReactElement => {
+        if(link.subMenu != undefined){
+            return (
+                <MenuDropdown link={link as DropdownLinkData} />
+            )
+        }
+
+        return (<div></div>)
+    }
+
+
+    const menu = links.map((link : LinkData, index) => {
+
+        let menuEntry : ReactElement = (
+            <div key={index}></div>
+        )
+
+        if(link.type == "link"){
+            menuEntry = generateLink(link, index)
+        } else if(link.type == "dropdown"){
+            menuEntry = generateDropdown(link)
+        }
+
 
         if(index != links.length-1){
             return (
-                <div className={"flex items-center"}>
-                    <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
+                <div  key={index} className={`flex items-center`}>
+                    {menuEntry}
                     <div className={"h-1 w-1 rounded-full bg-secondary"}></div>
                 </div>
             )
         }
 
         return (
-            <div className={"flex items-center"}>
-                <Link key={link.url} className={"mx-5"} href={link.url}>{link.text}</Link>
+            <div key={index} className={"flex items-center"}>
+                {menuEntry}
             </div>
         )
-
     });
 
     return (

@@ -1,29 +1,29 @@
 'use client'
 import Input from "@/components/Input";
 import {extractFormData} from "@/utils/formUtils";
-import {signIn, useSession} from "next-auth/react";
-import {useState} from "react";
+import {signIn, SignInAuthorizationParams, useSession} from "next-auth/react";
+import {FormEvent, useState} from "react";
 import {useRouter} from "next/navigation";
 
 
-export default function LoginForm ({providers, csrfToken }){
+export default function LoginForm ({providers, csrfToken } : {providers: any, csrfToken: any}){
     const router = useRouter()
     const { data: session, status } = useSession()
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([""] )
 
     if(session){
         router.push("/dashboard")
     }
 
-    const login = async (e, providerId) => {
+    const login = async (e: FormEvent<HTMLFormElement>, providerId : string | undefined) => {
         e.preventDefault();
 
         const data = await extractFormData(e.target);
         const response =
-            await signIn(providerId, { callbackUrl: "http://localhost:3000/dashboard", redirect: false }, data)
+            await signIn(providerId, { callbackUrl: "http://localhost:3000/dashboard", redirect: false }, data as SignInAuthorizationParams)
 
         if(response?.error){
-            setErrors("Invalid credentials")
+            setErrors(["Invalid credentials"])
         }
 
         router.push("/confirmation");

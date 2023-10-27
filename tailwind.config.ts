@@ -16,7 +16,9 @@ const config: Config = {
         "secondary": "#FF6B1A",
         "secondary-pale": "rgba(255,107,26,0.3)",
         "white-pale": "rgba(255,255,255,0.5)",
-        "beige": "#EFDEC2"
+        "beige": "#EFDEC2",
+        "cyan": "#00B3AD",
+        "cyan-light": "#47cec9"
       },
       borderRadius:{
         "5xl": "50px"

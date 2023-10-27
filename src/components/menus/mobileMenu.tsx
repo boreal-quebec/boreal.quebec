@@ -4,11 +4,7 @@ import Image from "next/image";
 import logoMobile from "../../../public/logo-mobile.svg";
 import React, {useState} from "react";
 import Link from "next/link";
-
-interface LinkData{
-    url: string,
-    text: string
-}
+import {LinkData} from "@/components/menus/menu";
 
 const MobileMenu = ({links} : {links: Array<LinkData>}) => {
 
@@ -16,7 +12,7 @@ const MobileMenu = ({links} : {links: Array<LinkData>}) => {
 
     const menu = links.map((link) => {
         return (
-            <Link key={link.url} className={"my-3 text-center"} href={link.url}>{link.text}</Link>
+            <Link key={link.url} className={"my-3 text-center"} href={link?.url ? link.url : ""}>{link.text}</Link>
         )
     });
 

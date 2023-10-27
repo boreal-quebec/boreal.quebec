@@ -4,7 +4,7 @@ import {validateRegisterData} from "@/app/lib/validation";
 
 
 export async function POST(request: Request) {
-    const data = await request.json() as CreateUserData
+    /*const data = await request.json() as CreateUserData
     data.role = "restaurateur"
 
     const isValid = await validateRegisterData(data)
@@ -18,5 +18,5 @@ export async function POST(request: Request) {
 
     const user = await authService.createUser(data);
 
-    return NextResponse.json({ }, {status: 200})
+    return NextResponse.json({ }, {status: 200})*/
 }

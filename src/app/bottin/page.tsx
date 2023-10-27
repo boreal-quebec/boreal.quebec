@@ -37,12 +37,12 @@ export default function Botin() {
 
     return(
         <PageTemplate title={"Le Bottin"} phrase={"Le répertoire des restaurateurs alternatifs québecois"}>
-            <div className={"flex flex-row"}>
+            <div className={"flex flex-col xl:flex-row"}>
                 <PageLeftColumn bigButtons={[appelOffre, figurerBottin]}>
                     <RechercheBottinForm />
                 </PageLeftColumn>
                 <div className={"lg:grow lg:ml-6"}>
-                    <div className="grid gap-4 2xl:grid-cols-3 md:grid-cols-2 mt-6 lg:mt-0">
+                    <div className="grid gap-4 2xl:grid-cols-3 md:grid-cols-2 p-5 mt-6 lg:mt-0">
                         {searchResults}
                     </div>
                 </div>

@@ -31,5 +31,11 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/app/lib/server.ts",
+    "./src/app/lib/auth.ts",
+    "./src/app/lib/client.ts",
+    "./src/app/lib/validation.ts"
+  ]
 }

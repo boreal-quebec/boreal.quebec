@@ -3,38 +3,37 @@ import Image from "next/image";
 import logo from "../../../public/logo.svg";
 import React from "react";
 import FooterImage from "../../../public/photos/Lumieres_HomePage.jpg";
+import ImageBanner from "@/components/imageBanner";
 
 
 export default function Footer(){
 
     return(
         <div className={"flex flex-col"}>
-            <div className={"flex w-full h-96"}>
-                <Image className={"overflow-hidden object-cover"} src={FooterImage} alt={""}  />
-            </div>
-            <div className={"flex justify-evenly items-center p-10"}>
+            <ImageBanner image={FooterImage} />
+            <div className={"flex flex-col text-center justify-center space-y-2 p-5 items-center lg:flex-row lg:justify-evenly lg:items-center lg:p-10"}>
                 <div>
-                    <h1 className={"text-2xl font-semibold text-primary"}>2 326</h1>
-                    <p className={"text-primary font-semibold"}>restaurateurs</p>
+                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>2 326</h1>
+                    <p className={"md:text-xl text-primary font-semibold"}>restaurateurs</p>
                 </div>
                 <div className={"h-3 w-3 rounded-full bg-primary"}></div>
                 <div>
-                    <h1 className={"text-2xl font-semibold text-primary"}>7 275</h1>
-                    <p className={"text-primary font-semibold"}>clients</p>
+                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>7 275</h1>
+                    <p className={"md:text-xl text-primary font-semibold"}>clients</p>
                 </div>
                 <div className={"h-3 w-3 rounded-full bg-primary"}></div>
                 <div>
-                    <h1 className={"text-2xl font-semibold text-primary"}>8 540</h1>
-                    <p className={"text-primary font-semibold"}>appels d’offre</p>
+                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>8 540</h1>
+                    <p className={"md:text-xl text-primary font-semibold"}>appels d’offre</p>
                 </div>
                 <div className={"h-3 w-3 rounded-full bg-primary"}></div>
                 <div>
-                    <h1 className={"text-2xl font-semibold text-primary"}>12 540</h1>
-                    <p className={"text-primary font-semibold"}>soumissions</p>
+                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>12 540</h1>
+                    <p className={"md:text-xl text-primary font-semibold"}>soumissions</p>
                 </div>
             </div>
             <div className={"flex justify-center bg-primary-800 p-10"}>
-                <div className={"flex w-11/12 justify-between mt-4"}>
+                <div className={"flex flex-col xs:text-center lg:text-left space-y-5 lg:flex-row w-11/12 justify-between mt-4"}>
                     <div className={"justify-self-start pr-6"}>
                         <Link href={"/"}>
                             <Image
@@ -72,7 +71,7 @@ export default function Footer(){
                     </div>
                 </div>
             </div>
-            <div className={"flex justify-center bg-black p-2    text-white"}>
+            <div className={"flex justify-center bg-black p-2 text-sm text-white"}>
                 <p>© boreal.quebec, 2023. Tous droits réservés.</p>
             </div>
         </div>

@@ -1,6 +1,7 @@
+import Dict = NodeJS.Dict;
 
 
-interface CreateClientUserData{
+interface CreateClientUserData extends Dict<string>{
     firstname: string;
     lastname: string;
     email: string;
@@ -9,7 +10,7 @@ interface CreateClientUserData{
     role: string;
 }
 
-interface CreateRestaurateurUserData{
+interface CreateRestaurateurUserData extends Dict<string>{
     firstname: string;
     lastname: string;
     email: string;

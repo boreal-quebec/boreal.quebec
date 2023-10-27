@@ -19,7 +19,7 @@ export default function Fonctionnement() {
                             Votre temps est précieux. Inscrivez-vous à boreal.quebec, obtenez des soumissions et trouver un restaurateur de rêve pour votre événement.
                         </div>
                         <div className={"flex justify-start"}>
-                            <RegisterButton link={"/devenir-membre/client"} prefix={"Devenir membre"} type={"Client"} color={"secondary"} position={"left"} phrase={"Créez votre compte. C’est gratuit."} loginPhrase={"Je suis déjà membre client"}  />
+                            <RegisterButton link={"/devenir-membre/client"} prefix={"Devenir membre"} type={"Client"} color={"secondary"} position={"left"} phrase={"Créez votre compte. C’est gratuit."} />
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ export default function Fonctionnement() {
                             Votre savoir-faire mérite d’être connu. Inscrivez-vous à boreal.quebec, soyez visibles et trouver des nouveaux clients.
                         </div>
                         <div className={"flex justify-start"}>
-                            <RegisterButton link={"/devenir-membre/restaurateur"} prefix={"Devenir membre"} type={"RESTAURATEUR"} color={"primary"} position={"left"} phrase={"Créez votre compte. C’est gratuit."} loginPhrase={"Je suis déjà membre client"}  />
+                            <RegisterButton link={"/devenir-membre/restaurateur"} prefix={"Devenir membre"} type={"RESTAURATEUR"} color={"primary"} position={"left"} phrase={"Créez votre compte. C’est gratuit."} />
                         </div>
                     </div>
                 </div>

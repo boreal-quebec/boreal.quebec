@@ -22,7 +22,7 @@ export default function AppelOffreModal({onClickClose} : AppelOffreModalProps){
                         <div className={"mb-4"}>
                             <div className={"h-16 w-16 rounded-full bg-secondary"}></div>
                         </div>
-                        <h1 className={"text-secondary font-medium text-center text-2xl md:text-3xl px-8"}>Appel d'offre active</h1>
+                        <h1 className={"text-secondary font-medium text-center text-2xl md:text-3xl px-8"}>Appel d&lsquo;offre active</h1>
                         <p className={"text-gray-500 text-center px-8"}>Publié il y a 3 minutes</p>
                     </div>
                     <AppelOffreCard size={"small"}/>
@@ -45,7 +45,7 @@ export default function AppelOffreModal({onClickClose} : AppelOffreModalProps){
                     </Card>
                     <Card>
                         <div className={"flex flex-col p-12"}>
-                            <h1 className={"flex text-gray-500 text-2xl mb-5"}>Soumissionnaire sur cet appel d'offre</h1>
+                            <h1 className={"flex text-gray-500 text-2xl mb-5"}>Soumissionnaire sur cet appel d&lsquo;offre</h1>
                             <p className={"font-bold text-black"}>BALUCHON</p>
                             <p className={"font-bold text-black"}>LE GRAS DUR</p>
                             <p className={"font-bold text-black"}>MI CORAZON</p>

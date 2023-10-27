@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dropdown = ({ label, values, name, ...props}:{label: string, values: Array<string>, name: string}) => {
+const Dropdown = ({ label = "", values, name = "", ...props}:{label?: string, values: Array<string>, name?: string}) => {
 
     const options = values.map((value) => (<option key={value} value={value}>{value}</option>));
    return(

@@ -5,11 +5,12 @@ import Button from "@/components/menus/button";
 import {useRouter} from "next/navigation";
 import {extractFormData} from "@/utils/formUtils";
 import {registerClient} from "@/app/lib/client";
+import {FormEvent} from "react";
 
 
 export default function RegisterClientForm() {
     const router = useRouter()
-    const register = async (e) => {
+    const register = async (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const data = await extractFormData(e.target) as CreateClientUserData;

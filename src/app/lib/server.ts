@@ -20,7 +20,7 @@ interface LoginResponseData{
 
 
 
-const createUser = async (data : CreateUserData)=> {
+const createUser = async (data : CreateClientUserData)=> {
     const response = await fetch(`${process.env["API_URL"]}/users`, {
         method: "POST",
         headers: {

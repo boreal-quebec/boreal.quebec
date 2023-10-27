@@ -11,6 +11,9 @@ import AppelOffreModal from "@/components/modals/appelOffreModal";
 
 
 export default function AppelOffer() {
+
+    return (<div></div>)
+/*
     const [showAppelOffreModal, setShowAppelOffreModal] = useState(false)
     const [appelOffreId, setAppelOffreId] = useState("")
 
@@ -97,5 +100,5 @@ export default function AppelOffer() {
             <Header title={"Appels d’offres"} phrase={"Profitez de la plus importante plateforme québecoise d’appels d’offres pour des services de restauration alternative"}/>
 
         </main>
-    )
+    )*/
 }
