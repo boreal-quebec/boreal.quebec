@@ -1,3 +1,4 @@
+import SubscribeNewsletter from "@/components/forms/subscribeNewsletter";
 
 
 const StickyHeader = () => {
@@ -17,8 +18,7 @@ const StickyHeader = () => {
             </div>
             <div className={"flex items-center justify-center p-5 w-1/3"}>
                 <div className={"flex grow"}>
-                    <input className={"px-5 py-3 rounded-l-5xl w-1/2"} type={"email"} placeholder={"Adresse courriel"} />
-                    <button className={"px-5 py-3 bg-primary rounded-r-5xl text-white"}>Envoyer</button>
+                    <SubscribeNewsletter />
                 </div>
             </div>
         </div>

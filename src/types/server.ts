@@ -1,5 +1,8 @@
 import Dict = NodeJS.Dict;
 
+interface RegisterNewsletter extends Dict<string>{
+    email: string
+}
 
 interface CreateClientUserData extends Dict<string>{
     firstname: string;
