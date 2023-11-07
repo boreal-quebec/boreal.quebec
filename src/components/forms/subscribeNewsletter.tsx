@@ -2,7 +2,7 @@
 
 import React, {FormEvent, useState} from "react";
 import {extractFormData} from "@/utils/formUtils";
-import {registerNewsletter, RegisterNewsletterServerResponse} from "@/app/lib/client";
+import {registerNewsletter, RegisterNewsletterServerResponse} from "@/app/(public)/lib/client";
 import {set} from "zod";
 
 
@@ -22,8 +22,8 @@ const SubscribeNewsletter = () => {
     }
 
     return (
-        <form onSubmit={subscribeToNewletter}>
-            <input className={"px-5 py-3 rounded-l-5xl grow"} name={"email"} type={"email"} placeholder={"Adresse courriel"} />
+        <form className={"flex p-2"} onSubmit={subscribeToNewletter}>
+            <input className={"px-5 py-3 rounded-l-5xl md:grow"} name={"email"} type={"email"} placeholder={"Adresse courriel"} />
             <button type={"submit"} className={"px-5 py-3 bg-primary rounded-r-5xl text-white"}>Envoyer</button>
         </form>
     )

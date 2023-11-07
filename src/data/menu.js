@@ -15,7 +15,6 @@ export const mainMenu = [
         "type": "dropdown",
         "subMenu": {
             "à propos": "/a-propos",
-            "fontionnement": "/fonctionnement",
             "avantages membres client": "/avantage-membre/client",
             "avantages membres restaurateur": "/avantage-membre/restaurateur",
             "abonnement membre restaurateur+": "",

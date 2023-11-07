@@ -33,9 +33,9 @@
   ],
   "exclude": [
     "node_modules",
-    "src/app/lib/server.ts",
-    "./src/app/lib/auth.ts",
-    "./src/app/lib/client.ts",
-    "./src/app/lib/validation.ts"
+    "src/app/{public}/lib/server.ts",
+    "./src/app/{public}/lib/auth.ts",
+    "./src/app/{public}/lib/client.ts",
+    "./src/app/{public}/lib/validation.ts"
   ]
 }

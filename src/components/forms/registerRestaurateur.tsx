@@ -1,10 +1,10 @@
 "use client"
 
-import Input from "@/components/Input";
+import Input from "@/components/forms/Input";
 import Button from "@/components/menus/button";
 import {useRouter} from "next/navigation";
 import {extractFormData} from "@/utils/formUtils";
-import {registerRestaurateur} from "@/app/lib/client";
+import {registerRestaurateur} from "@/app/(public)/lib/client";
 import {FormEvent} from "react";
 
 

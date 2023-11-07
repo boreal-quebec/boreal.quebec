@@ -11,7 +11,6 @@ export interface DropdownLinkData{
 export default function MenuDropdown ({link} : {link: DropdownLinkData}) {
     let openLaunchModal= useContext(LaunchContext);
 
-
     const dropdownStyle = "flex relative mx-5 cursor-pointer"
     const dropdownContentStyle = "flex flex-col bg-white hidden absolute w-56 shadow-2xl shadow-black"
 

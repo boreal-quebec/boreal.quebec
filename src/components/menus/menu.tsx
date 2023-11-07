@@ -2,14 +2,9 @@
 
 import Image from "next/image";
 import logo from "../../../public/logo.svg";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUser} from "@fortawesome/free-regular-svg-icons";
 import React, {ReactElement, useContext} from "react";
 import Link from "next/link";
-import {useSession} from "next-auth/react";
 import MenuLoginStatus from "@/components/menus/menuLoginStatus";
-import {JSXElement} from "@babel/types";
-import Dropdown from "@/components/dropdown";
 import MenuDropdown, {DropdownLinkData} from "@/components/menus/menuDropdown";
 import {LaunchContext} from "@/components/providers";
 
@@ -73,6 +68,8 @@ const Menu = ({links} : {links: Array<LinkData>}) => {
         )
     });
 
+
+
     return (
         <div className={"hidden lg:flex lg:flex-col lg:visible shadow-xl shadow-gray-300"}>
             <div>
@@ -92,7 +89,7 @@ const Menu = ({links} : {links: Array<LinkData>}) => {
                     <div className={"flex h-1/2 text-sm text-primary self-center items-center border-l-2 border-r-2 border-secondary"}>
                         {menu}
                     </div>
-                    <div className={"flex h-1/2 pl-6 justify-center items-center"}>
+                    <div className={"flex h-1/2 pl-6 invisible justify-center items-center"}>
                         <MenuLoginStatus />
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import Dropdown from "@/components/dropdown";
+import Dropdown from "@/components/dropdown/dropdown";
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBackward, faForward} from "@fortawesome/free-solid-svg-icons";

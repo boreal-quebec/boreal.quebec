@@ -12,22 +12,22 @@ export default function Footer(){
         <div className={"flex flex-col"}>
             <ImageBanner image={FooterImage} />
             <div className={"flex flex-col text-center justify-center space-y-2 p-5 items-center lg:flex-row lg:justify-evenly lg:items-center lg:p-10"}>
-                <div>
+                <div className={"w-1/7 grow"}>
                     <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>2 326</h1>
                     <p className={"md:text-xl text-primary font-semibold"}>restaurateurs</p>
                 </div>
                 <div className={"h-3 w-3 rounded-full bg-primary"}></div>
-                <div>
+                <div className={"w-1/7 grow"}>
                     <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>7 275</h1>
                     <p className={"md:text-xl text-primary font-semibold"}>clients</p>
                 </div>
                 <div className={"h-3 w-3 rounded-full bg-primary"}></div>
-                <div>
+                <div className={"w-1/7 grow"}>
                     <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>8 540</h1>
                     <p className={"md:text-xl text-primary font-semibold"}>appels d’offre</p>
                 </div>
                 <div className={"h-3 w-3 rounded-full bg-primary"}></div>
-                <div>
+                <div className={"w-1/7 grow"}>
                     <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>12 540</h1>
                     <p className={"md:text-xl text-primary font-semibold"}>soumissions</p>
                 </div>

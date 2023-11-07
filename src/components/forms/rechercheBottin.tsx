@@ -1,4 +1,4 @@
-import Dropdown from "@/components/dropdown";
+import Dropdown from "@/components/dropdown/dropdown";
 import React from "react";
 
 export default function RechercheBottinForm(){

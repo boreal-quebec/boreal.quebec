@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
-import {authService} from "@/app/lib/server";
-import {validateRegisterData} from "@/app/lib/validation";
+import {authService} from "@/app/(public)/lib/server";
+import {validateRegisterData} from "@/app/(public)/lib/validation";
 
 
 export async function POST(request: Request) {
