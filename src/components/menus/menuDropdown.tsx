@@ -1,6 +1,6 @@
 "use client"
 import React, {useContext, useState} from "react";
-import {LaunchContext} from "@/components/providers";
+import {LaunchContext} from "@/components/launchContext";
 import Dict = NodeJS.Dict;
 
 export interface DropdownLinkData{
@@ -9,7 +9,7 @@ export interface DropdownLinkData{
 }
 
 export default function MenuDropdown ({link} : {link: DropdownLinkData}) {
-    let openLaunchModal= useContext(LaunchContext);
+    let {openLaunchModal, closeLaunchModal}= useContext(LaunchContext);
 
     const dropdownStyle = "flex relative mx-5 cursor-pointer"
     const dropdownContentStyle = "flex flex-col bg-white hidden absolute w-56 shadow-2xl shadow-black"

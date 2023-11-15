@@ -1,6 +1,6 @@
 "use client"
 import Dropdown from "@/components/dropdown/dropdown";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import AppelOffreCard from "@/components/cards/appelOffre";
 import Header from "@/components/layout/header";
 import PageTemplate from "@/components/layout/pageTemplate";
@@ -8,12 +8,14 @@ import {BigButton} from "@/components/buttons/bigButton";
 import PageLeftColumn from "@/components/layout/pageLeftColumn";
 import SearchResults from "@/components/forms/searchResults";
 import AppelOffreModal from "@/components/modals/appelOffreModal";
+import {LaunchContext} from "@/components/launchContext";
 
 
 export default function AppelOffer() {
 
-    return (<div></div>)
-/*
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
+    openLaunchModal();
+
     const [showAppelOffreModal, setShowAppelOffreModal] = useState(false)
     const [appelOffreId, setAppelOffreId] = useState("")
 
@@ -100,5 +102,5 @@ export default function AppelOffer() {
             <Header title={"Appels d’offres"} phrase={"Profitez de la plus importante plateforme québecoise d’appels d’offres pour des services de restauration alternative"}/>
 
         </main>
-    )*/
+    )
 }

@@ -2,12 +2,12 @@
 export const mainMenu = [
     {
         "text": "Bottin",
-        "url": "",
+        "url": "/bottin",
         "type": "link"
     },
     {
         "text": "Appels d’offres",
-        "url": "",
+        "url": "/appels-offre",
         "type": "link"
     },
     {

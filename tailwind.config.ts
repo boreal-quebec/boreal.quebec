@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      spacing:{
+        "dot": "55px"
+      },
+      fontSize:{
+        "title": "52px",
+        "subtitle": "29x"
+      },
       colors:{
         "primary": "#006663",
         "primary-800": "#172E2C",

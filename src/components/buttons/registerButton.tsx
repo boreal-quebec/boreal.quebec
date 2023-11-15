@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, {useContext} from "react";
-import {LaunchContext} from "@/components/providers";
+import {LaunchContext} from "@/components/launchContext";
 
 interface RegisterButtonProps {
     prefix: string,
@@ -16,7 +16,7 @@ interface RegisterButtonProps {
 
 const RegisterButton = ({prefix, type, phrase, color, position, link, preLaunch = false} : RegisterButtonProps) => {
 
-    let openLaunchModal = useContext(LaunchContext);
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
 
     if(preLaunch){
         return (

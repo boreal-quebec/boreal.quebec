@@ -6,7 +6,7 @@ import React, {ReactElement, useContext} from "react";
 import Link from "next/link";
 import MenuLoginStatus from "@/components/menus/menuLoginStatus";
 import MenuDropdown, {DropdownLinkData} from "@/components/menus/menuDropdown";
-import {LaunchContext} from "@/components/providers";
+import {LaunchContext} from "@/components/launchContext";
 
 export interface LinkData{
     url?: string,
@@ -17,7 +17,7 @@ export interface LinkData{
 
 const Menu = ({links} : {links: Array<LinkData>}) => {
 
-    let openLaunchModal = useContext(LaunchContext);
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
 
     const generateLink = (link : LinkData, index: number) : ReactElement => {
         if(link.url != undefined && link.url != ""){

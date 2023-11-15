@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, {useContext} from "react";
 
 import homePageTextData from "@/data/homePageText"
 import HomePageText from "@/components/homePageText";
@@ -8,9 +9,12 @@ import HomeHeader from "@/components/layout/homeHeader";
 import Image from "next/image";
 import HomePageTopImage from "../../../public/photos/GrazingTable_HomePage.jpg";
 import ImageBanner from "@/components/imageBanner";
+import {LaunchContext} from "@/components/launchContext";
 
 
 export default function Home() {
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
+    closeLaunchModal();
 
     const homePageTexts = homePageTextData.map((text) => <HomePageText key={text.title} title={text.title} paragraph={text.paragraph} />)
 

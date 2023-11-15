@@ -2,11 +2,11 @@
 
 import React, {useContext} from "react";
 import Link from "next/link";
-import {LaunchContext} from "@/components/providers";
+import {LaunchContext} from "@/components/launchContext";
 
 export default function NavFooterBanners(){
 
-    let openLaunchModal = useContext(LaunchContext);
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
 
     const style = {
         collumnPadding: "px-5 xl:px-12 2xl:px-24",

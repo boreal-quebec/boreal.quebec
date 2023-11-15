@@ -4,16 +4,21 @@ import Header from "@/components/layout/header";
 import PageTemplate from "@/components/layout/pageTemplate";
 import PageLeftColumn from "@/components/layout/pageLeftColumn";
 import {BigButton} from "@/components/buttons/bigButton";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import SearcResultCard from "@/components/searcResultCard";
 import SearchResultCard from "@/components/searcResultCard";
+import {RestaurantContext} from "@/components/contexts/RestaurantContext";
+import {LaunchContext} from "@/components/launchContext";
 
 export default function Botin() {
 
-    const [results, setResults] = useState<RestaurantData[] | undefined>(undefined)
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
+    openLaunchModal();
+
+    //const [results, setResults] = useState<RestaurantData[] | undefined>(undefined)
     const [search, setSearch]= useState({})
 
-    useEffect(() => {
+    /*useEffect(() => {
         let ignore = false;
         fetch("/api/bottin?"+ new URLSearchParams({text: "hello"}), {
             method: "GET",
@@ -26,7 +31,7 @@ export default function Botin() {
         return () => {
             ignore = true;
         };
-    }, [search])
+    }, [search])*/
 
 
     const appelOffre = (
@@ -53,7 +58,104 @@ export default function Botin() {
         />
     )
 
-    const searchResults = results?.map((result) => (<SearchResultCard key={result.id} companyName={result.name} logo={result.logo} services={result.services} products={result.products}/>))
+    const restaurants : RestaurantData[] = [
+        {
+            id: 1,
+            name: "Restaurant 1",
+            services: [
+                {"name": "Service 1"},
+                {"name": "Service 2"},
+                {"name": "Service 3"}
+            ],
+            products: [
+                {"name": "Product 1"},
+                {"name": "Product 2"},
+                {"name": "Product 3"}
+            ],
+            logo: ""
+        },
+        {
+            id: 1,
+            name: "Restaurant 1",
+            services: [
+                {"name": "Service 1"},
+                {"name": "Service 2"},
+                {"name": "Service 3"}
+            ],
+            products: [
+                {"name": "Product 1"},
+                {"name": "Product 2"},
+                {"name": "Product 3"}
+            ],
+            logo: ""
+        },
+        {
+            id: 1,
+            name: "Restaurant 1",
+            services: [
+                {"name": "Service 1"},
+                {"name": "Service 2"},
+                {"name": "Service 3"}
+            ],
+            products: [
+                {"name": "Product 1"},
+                {"name": "Product 2"},
+                {"name": "Product 3"}
+            ],
+            logo: ""
+        },
+        {
+            id: 1,
+            name: "Restaurant 1",
+            services: [
+                {"name": "Service 1"},
+                {"name": "Service 2"},
+                {"name": "Service 3"}
+            ],
+            products: [
+                {"name": "Product 1"},
+                {"name": "Product 2"},
+                {"name": "Product 3"}
+            ],
+            logo: ""
+        },
+        {
+            id: 1,
+            name: "Restaurant 1",
+            services: [
+                {"name": "Service 1"},
+                {"name": "Service 2"},
+                {"name": "Service 3"}
+            ],
+            products: [
+                {"name": "Product 1"},
+                {"name": "Product 2"},
+                {"name": "Product 3"}
+            ],
+            logo: ""
+        },
+        {
+            id: 1,
+            name: "Restaurant 1",
+            services: [
+                {"name": "Service 1"},
+                {"name": "Service 2"},
+                {"name": "Service 3"}
+            ],
+            products: [
+                {"name": "Product 1"},
+                {"name": "Product 2"},
+                {"name": "Product 3"}
+            ],
+            logo: ""
+        }
+    ]
+
+    const searchResults = restaurants?.map((restaurant : RestaurantData) => (
+        <RestaurantContext.Provider key={restaurant.id} value={{restaurant}}>
+            <SearchResultCard />
+        </RestaurantContext.Provider>
+    ))
 
     return(
         <PageTemplate title={"Le Bottin"} phrase={"Le répertoire des restaurateurs alternatifs québecois"}>

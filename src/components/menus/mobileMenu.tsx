@@ -5,12 +5,12 @@ import logoMobile from "../../../public/logo-mobile.svg";
 import React, {ReactElement, useContext, useState} from "react";
 import Link from "next/link";
 import {LinkData} from "@/components/menus/menu";
-import {LaunchContext} from "@/components/providers";
+import {LaunchContext} from "@/components/launchContext";
 import MenuDropdown, {DropdownLinkData} from "@/components/menus/menuDropdown";
 
 const MobileMenu = ({links} : {links: Array<LinkData>}) => {
 
-    let openLaunchModal = useContext(LaunchContext);
+    let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
 
     const [menuOpen, setMenuOpen] = useState(false);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import SubscribeNewsletter from "@/components/forms/subscribeNewsletter";
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 type OnClickCloseCallback = () => void
 
@@ -8,8 +9,9 @@ interface PreLaunchModalProps{
 }
 
 const PreLaunchModal = ({onClickClose} : PreLaunchModalProps) => {
+    useLockBodyScroll();
     return (
-        <div className={"fixed inset-0 overflow-y-auto h-full w-full bg-black bg-opacity-50"}>
+        <div className={"p-5 fixed inset-0 h-full w-full bg-black bg-opacity-50 z-10"}>
             <div className={"flex z-10 min-h-screen items-center justify-center"}>
                 <div className={"flex flex-col bg-cyan rounded-5xl space-y-10"}>
                     <div className={"p-10 bg-cyan-light rounded-t-5xl"}>
