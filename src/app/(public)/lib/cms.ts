@@ -12,7 +12,6 @@ const FindRestaurants = async (data: BottinSearchParams) : Promise<Promise<Serve
     const json = await response.json()
 
     if(json){
-        console.log(json)
         return {
             succeeded: true,
             data: json.data

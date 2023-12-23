@@ -6,7 +6,6 @@ export async function POST(request: NextRequest) {
 
     const response : RegisterNewsletterResponse = await emailService.registerNewsletter(data);
 
-    console.log(response)
 
     return NextResponse.json({message: response.message}, response.succeeded ? {status: 200} : {status: 400})
 }

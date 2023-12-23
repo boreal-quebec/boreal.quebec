@@ -1,14 +1,15 @@
 "use client"
-
+/*
 import Image from "next/image";
-import logoMobile from "../../../public/logo-mobile.svg";
+import logoMobile from "../../../public/icons/picto_BOREAL_QUEBEC_LOGO_TOP.svg";
+import mobileMenuIcon from "../../../public/icons/MobileMenuIcon.svg";
 import React, {ReactElement, useContext, useState} from "react";
 import Link from "next/link";
-import {LinkData} from "@/components/menus/menu";
 import {LaunchContext} from "@/components/launchContext";
 import MenuDropdown, {DropdownLinkData} from "@/components/menus/menuDropdown";
+import MenuLoginStatus from "@/components/menus/menuLoginStatus";
 
-const MobileMenu = ({links} : {links: Array<LinkData>}) => {
+const MobileMenu_bck = ({links} : {links: Array<LinkData>}) => {
 
     let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
 
@@ -30,6 +31,22 @@ const MobileMenu = ({links} : {links: Array<LinkData>}) => {
         }
 
         return (<div></div>)
+    }
+
+
+    links.map((link) => {
+        switch (link.type) {
+            case "link":
+                const linkData = link as LinkData
+                if(linkData.url != undefined && linkData.url != ""){
+
+                }
+                break;
+            case "dropdown":
+                const dropdownData = link as MenuDropdownData
+                // Add mobile submenu
+                break;
+        }
     }
 
     const menu = links.map((link, index) => {
@@ -63,22 +80,29 @@ const MobileMenu = ({links} : {links: Array<LinkData>}) => {
     }
 
     return (
-        <div className={`flex flex-col visible lg:hidden`}>
-            <div className={"flex justify-start items-center px-2 h-1/6 bg-primary"}>
-                <button onClick={toggleMobileMenu} className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                    <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-                </button>
-                <Link className={"flex grow"} href={"/"}>
+        <div className={"bg-white h-[56px]"}>
+            <div className={`container flex justify-between items-center visible lg:hidden`}>
+                <button onClick={toggleMobileMenu} className="flex items-center text-teal-200 border-teal-400 hover:text-white hover:border-white">
                     <Image
-                        className={"grow mt-2 p-8"}
+                        width={25}
+                        height={15}
+                        src={mobileMenuIcon}
+                        alt={"Boreal Menu Icon"}
+                    />
+                </button>
+                <Link className={"flex"} href={"/"}>
+                    <Image
+                        width={180}
+                        className={"grow"}
                         src={logoMobile}
                         alt={"Boreal Quebec Logo"}
                     />
                 </Link>
+                <MenuLoginStatus mobile={true} />
+                {mobileMenu()}
             </div>
-            {mobileMenu()}
         </div>
     )
 }
 
-export default MobileMenu;
+export default MobileMenu_bck;*/

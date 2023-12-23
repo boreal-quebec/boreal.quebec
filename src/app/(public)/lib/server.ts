@@ -55,8 +55,6 @@ const login = async (data: User) => {
 
     const serverResponse = await response.json() as LoginServerResponse
 
-    console.log(serverResponse)
-
     if(!serverResponse.success){
         return null;
     }

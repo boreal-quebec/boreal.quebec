@@ -1,13 +1,27 @@
 "use client"
 
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, FormHTMLAttributes, useState} from "react";
 import {extractFormData} from "@/utils/formUtils";
 import {registerNewsletter, RegisterNewsletterServerResponse} from "@/app/(public)/lib/client";
 import {set} from "zod";
 
+interface RegisterNewsletterProps extends FormHTMLAttributes<HTMLFormElement> {
+    buttonColor: "beige" | "green"
+}
 
-const SubscribeNewsletter = () => {
+interface ButtonVariants {
+
+}
+
+
+
+const SubscribeNewsletter = ({buttonColor} : RegisterNewsletterProps) => {
     const [message, setMessage] = useState("")
+
+    const buttonVariants = {
+        beige: "bg-beige text-black",
+        green: "bg-primary text-white"
+    }
 
     const subscribeToNewletter = async (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -22,9 +36,9 @@ const SubscribeNewsletter = () => {
     }
 
     return (
-        <form className={"flex p-2"} onSubmit={subscribeToNewletter}>
-            <input className={"px-5 py-3 rounded-l-5xl md:grow"} name={"email"} type={"email"} placeholder={"Adresse courriel"} />
-            <button type={"submit"} className={"px-5 py-3 bg-primary rounded-r-5xl text-white"}>Envoyer</button>
+        <form className={"flex"} onSubmit={subscribeToNewletter}>
+            <input className={"pl-6 w-[200px] h-[23px] rounded-l-[8px] text-primary text-infolettreFormTextSm"} name={"email"} type={"email"} placeholder={"Adresse courriel"} />
+            <button type={"submit"} className={`w-[115px] h-[23px] px-2 py-1 rounded-r-[8px] text-newsletterInput text-infolettreFormText ${buttonVariants[buttonColor]}`}>ENVOYER</button>
         </form>
     )
 }

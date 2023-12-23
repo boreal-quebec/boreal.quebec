@@ -18,24 +18,13 @@ const RegisterButton = ({prefix, type, phrase, color, position, link, preLaunch 
 
     let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
 
-    if(preLaunch){
-        return (
-            <Link href={""} onClickCapture={(e) => {e.preventDefault(); openLaunchModal();}}>
-                <div className={`flex flex-col items-${position} bg-${color} text-white rounded-3xl mr-2 px-8 py-7 md:px-16 md:py-14`}>
-                    <h1 className={"font-semibold text-3xl lg:text-4xl"}>{prefix}</h1>
-                    <h1 className={"font-bold text-4xl md:text-5xl mb-4"}>{type}.</h1>
-                    <p className={"border-t-2 border-t-white pt-2"}>{phrase}</p>
-                </div>
-            </Link>
-        );
-    }
 
     return (
         <Link href={link}>
-            <div className={`flex flex-col items-${position} bg-${color} text-white rounded-3xl mr-2 px-8 py-7 md:px-16 md:py-14`}>
-                <h1 className={"font-semibold text-3xl lg:text-4xl"}>{prefix}</h1>
-                <h1 className={"font-bold text-4xl md:text-5xl mb-4"}>{type}.</h1>
-                <p className={"border-t-2 border-t-white pt-2"}>{phrase}</p>
+            <div className={`flex flex-col items-${position} bg-${color} text-white rounded-3xl md:mr-2 px-[18px] lg:px-[28px] py-[23px] lg:py-[42px]`}>
+                <h1 className={"text-bigButtonPrefixSm lg:text-bigButtonPrefixLg mb-[10px]"}>{prefix}</h1>
+                <h1 className={"font-bold text-bigButtonTypeSm lg:text-bigButtonTypeLg mb-[15px]"}>{type}</h1>
+                <p className={"border-t-2 border-t-white pt-[8px] text-bigButtonPhraseSm lg:text-bigButtonPhraseLg"}>{phrase}</p>
             </div>
         </Link>
     );

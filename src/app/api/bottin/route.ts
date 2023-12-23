@@ -5,13 +5,13 @@ import {cms} from "@/app/(public)/lib/cms";
 export async function GET(request: NextRequest) {
 
     const data = request.nextUrl.searchParams;
-    console.log(data)
+
     const response : ServerErrorResponse | ServerSuccessResponse<CMSRestaurantData[]> = await cms.FindRestaurants({});
 
     let restaurants : RestaurantData[] | null = null
     if(response.succeeded){
         const successResponse = response as ServerSuccessResponse<CMSRestaurantData[]>
-        restaurants = successResponse.data.map((restaurant) => {
+        /*restaurants = successResponse.data.map((restaurant) => {
             return {
                 id: restaurant.id,
                 name: restaurant.Name,
@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
                 description: restaurant.Description,
                 createdAt: ""
             }
-        })
+        })*/
     }
 
     return NextResponse.json({data: restaurants}, response.succeeded ? {status: 200} : {status: 400})

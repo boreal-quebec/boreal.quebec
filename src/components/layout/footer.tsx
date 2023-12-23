@@ -1,77 +1,95 @@
+import React from "react";
+
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../../public/logo.svg";
-import React from "react";
-import FooterImage from "../../../public/photos/Lumieres_HomePage.jpg";
+
+import {SocialIcon} from "react-social-icons";
+
+import logo from "@/../public/icons/picto_BOREAL_QUEBEC_LOGO_FOOTER.svg";
+import FooterImage from "@/../public/photos/Lumieres_HomePage.jpg";
+import LinkedInLogo from "@/../public/icons/linkedinLogo.svg"
+import FacebookLogo from "@/../public/icons/facebookLogo.svg"
+
 import ImageBanner from "@/components/imageBanner";
+import SiteStat from "@/components/siteStat";
+import MenuFooter from "@/components/menus/menuFooter";
+import SubscribeNewsletter from "@/components/forms/subscribeNewsletter";
 
 
 export default function Footer(){
 
+    const stats = [
+        {
+            count: 2326,
+            text: "restaurateurs"
+        },
+        {
+            count: 7275,
+            text: "clients"
+        },
+        {
+            count: 8540,
+            text: "appels d’offre"
+        },
+        {
+            count: 12540,
+            text: "soumissions"
+        },
+    ]
+
+    //This should be moved to a layout component that show a specified component in between children
+    const statsRendered =  stats.map((stat, index) =>{
+        if(index != stats.length - 1){
+            return (
+                <>
+                    <SiteStat key={stat.text} count={stat.count} text={stat.text} />
+                    <div className={"h-[6px] w-[6px] md:h-[10px] md:w-[10px] lg:h-[11px] lg:w-[11px] rounded-full bg-primary"}></div>
+                </>
+            )
+        }
+        return (
+            <>
+                <SiteStat key={stat.text} count={stat.count} text={stat.text} />
+            </>
+        )
+    })
+
     return(
         <div className={"flex flex-col"}>
             <ImageBanner image={FooterImage} />
-            <div className={"flex flex-col text-center justify-center space-y-2 p-5 items-center lg:flex-row lg:justify-evenly lg:items-center lg:p-10"}>
-                <div className={"w-1/7 grow"}>
-                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>2 326</h1>
-                    <p className={"md:text-xl text-primary font-semibold"}>restaurateurs</p>
-                </div>
-                <div className={"h-3 w-3 rounded-full bg-primary"}></div>
-                <div className={"w-1/7 grow"}>
-                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>7 275</h1>
-                    <p className={"md:text-xl text-primary font-semibold"}>clients</p>
-                </div>
-                <div className={"h-3 w-3 rounded-full bg-primary"}></div>
-                <div className={"w-1/7 grow"}>
-                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>8 540</h1>
-                    <p className={"md:text-xl text-primary font-semibold"}>appels d’offre</p>
-                </div>
-                <div className={"h-3 w-3 rounded-full bg-primary"}></div>
-                <div className={"w-1/7 grow"}>
-                    <h1 className={"text-2xl md:text-4xl font-semibold text-primary"}>12 540</h1>
-                    <p className={"md:text-xl text-primary font-semibold"}>soumissions</p>
-                </div>
+            <div className={"flex flex-col md:flex-row w-4/12 md:w-full xl:w-8/12 self-center items-center justify-center md:justify-around lg:justify-around space-y-[25px] md:space-y-[0px] py-[37px] md:py-[43px]"}>
+                {statsRendered}
             </div>
-            <div className={"flex justify-center bg-primary-800 p-10"}>
-                <div className={"flex flex-col xs:text-center lg:text-left space-y-5 lg:flex-row w-11/12 justify-between mt-4"}>
-                    <div className={"justify-self-start pr-6"}>
+            <div className={"flex justify-center bg-primary-800 py-10"}>
+                <div className={"flex flex-col w-8/12 xs:text-center lg:text-left lg:flex-row items-start justify-between mt-4"}>
+                    <div className={"flex flex-col"}>
                         <Link href={"/"}>
                             <Image
                                 src={logo}
-                                height={14*4}
-                                width={130*4}
+                                height={48}
+                                objectFit={"cover"}
                                 alt={"Boreal Quebec Logo"}
                             />
                         </Link>
+                        <div>
+                            <h3 className={"text-footerSocialLinkTitle text-beige pb-[8px] mt-[50px]"}>Suivez-vous!</h3>
+                            <div className={"flex space-x-[7px]"}>
+                                <Link target={"_blank"} href={"https://www.linkedin.com/"}><Image width={20} height={20} src={LinkedInLogo} alt={"linkedin"} /></Link>
+                                <Link target={"_blank"} href={"https://www.facebook.com/"}><Image width={20} height={20} src={FacebookLogo} alt={"facebook"} /></Link>
+                            </div>
+                            <div className={"mt-[30px]"}>
+                                <h3 className={"text-beige font-bold text-footerInfolettreTitle pb-[10px]"}>Ne manquvez rien!</h3>
+                                <p className={"text-beige text-footerInfolettreSubtitle pb-[15px]"}>Inscrivez-vous à l’infolettre</p>
+                                <SubscribeNewsletter buttonColor={"beige"}/>
+                            </div>
+                        </div>
                     </div>
-                    <div className={"flex flex-col text-white"}>
-                        <p>BOREAL.QUEBEC</p>
-                        <Link key={"/a-propos"} href={"/a-propos"}>À propos</Link>
-                        <Link key={"/contactez-nous"} href={"/contactez-nous"}>Contactez-nous</Link>
-                        <Link key={"/blog"} href={"/blog"}>Blog</Link>
-                        <Link key={"/faq"} href={"/faq"}>FAQ</Link>
-                        <Link key={"/confidentialite"} href={"/confidentialite"}>Politique de confidentialité</Link>
-                        <Link key={"/conditions"} href={"/conditions"}>Conditions</Link>
-                    </div>
-                    <div className={"flex flex-col text-white"}>
-                        <p>RESTAURATEUR</p>
-                        <Link key={"/appels-offre"} href={"/appels-offre"}>Appels d’offres</Link>
-                        <Link key={"/avantage-membre/restaurateur"} href={"/avantage-membre/restaurateur"}>Avantages membre</Link>
-                        <Link key={"/devenir-membre/restaurateur"} href={"/devenir-membre/restaurateur"}>Devenir Membre Restaurateur</Link>
-                        <Link key={"/restaurateur"} href={"/faq"}>Abonnement Restaurateur+</Link>
-                        <Link key={"/verification"} href={"/confidentialite"}>Vérification de profil</Link>
-                        <Link key={"/partenaire"} href={"/conditions"}>Rabais partenaires</Link>
-                    </div>
-                    <div className={"flex flex-col text-white"}>
-                        <p>CLIENT</p>
-                        <Link key={"/appels-offre"} href={"/appels-offre"}>Appels d’offres</Link>
-                        <Link key={"/avantage-membre/client"} href={"/avantage-membre/client"}>Avantages membre</Link>
-                        <Link key={"/devenir-membre/client"} href={"/devenir-membre/client"}>Devenir Membre Client</Link>
-                        <Link key={"/bottin"} href={"/faq"}>Consulter le bottin</Link>
-                    </div>
+                    <MenuFooter />
                 </div>
             </div>
-            <div className={"flex justify-center bg-black p-2 text-sm text-white"}>
+            <div className={"flex justify-center bg-black p-2 text-footerCopyright text-white space-x-[30px] text-copyrightFooterText"}>
+                <Link href={"/politique-confidentialite"} >Politique de confidentialité</Link>
+                <Link href={"/conditions-generale"} >Conditions générales</Link>
                 <p>© boreal.quebec, 2023. Tous droits réservés.</p>
             </div>
         </div>

@@ -18,24 +18,24 @@ interface IHeaderPhraseSize{
 export default function Header({title, phrase, size = "normal"} : HeaderProps){
 
     const titleSize : IHeaderTitleSize = {
-        normal: "text-2xl md:text-3xl 2xl:text-title",
+        normal: "text-title",
         big: "text-6xl md:text-7xl 2xl:text-8xl"
     }
 
     const phraseSize : IHeaderPhraseSize = {
-        normal: "text-xl md:text-3xl 2xl:text-subtitle",
+        normal: "text-subtitle",
         big: "text-3xl md:text-4xl"
     }
 
-    const contentPaddding = "pt-16 pb-32"
+    const contentPaddding = "mt-[35px] mb-[45px] md:mt-[65px] md:mb-[50px] lg:mt-[95px] lg:mb-[60px]"
 
     return (
         <div className={`flex flex-col justify-center items-center bg-primary-800 ${contentPaddding}`}>
-            <div className={"mb-12"}>
+            <div className={"mb-[15px] md:mb-[25px] lg:mb-[45px]"}>
                 <div className={"h-dot w-dot rounded-full bg-secondary"}></div>
             </div>
-            <h1 className={`text-beige font-medium text-center md:tracking-widest ${titleSize[size as keyof IHeaderTitleSize]} px-8`}>{title}</h1>
-            <h1 className={`text-beige font-medium text-center md:tracking-wide ${phraseSize[size as keyof IHeaderPhraseSize]} px-8 pt-5`}>{phrase}</h1>
+            <h1 className={`text-beige font-medium text-center tracking-title text-titleSm md:text-titleMd mb-[23px] md:mb-[0px]`}>{title}</h1>
+            <h1 className={`text-beige font-medium text-center tracking-title text-subtitleSm`}>{phrase}</h1>
         </div>
     )
 }

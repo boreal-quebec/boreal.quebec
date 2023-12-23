@@ -2,22 +2,29 @@ import Header, {HeaderProps} from "@/components/layout/header";
 import RegisterButton from "@/components/buttons/registerButton";
 import React from "react";
 
+import HomePageIcons from "@/../public/icons/homePageIcons.svg"
+import Image from "next/image";
+import Section from "@/components/layout/Section";
+
+//This should be change so that the header can be composed and the header can be used as a template with children
 
 export default function HomeHeader({title, phrase} : HeaderProps){
 
     const style = {
-        contentPadding: "md:pt-20 md:pb-20",
+        contentPadding: "" +
+            "md:pt-5 md:pb-5",
     }
 
     return (
-        <div className={`bg-primary-800`}>
-            <div className={`flex flex-col justify-center items-center ${style.contentPadding}`}>
+        <div className={`flex flex-col sm:items-center bg-primary-800`}>
+            <Section>
                 <Header title={title} phrase={phrase} />
-                <div className={"flex flex-col p-2 space-y-5 lg:flex-row lg:space-y-0 lg:space-x-20"}>
-                    <RegisterButton link={"/avantage-membre/client"} prefix={"Je suis"} type={"Client"} color={"secondary"} position={"left"} phrase={"Obtenez des soumissions de restaurateurs."} />
-                    <RegisterButton link={"/avantage-membre/restaurateur"} prefix={"Je suis"} type={"Restaurateur"} color={"primary"} position={"left"} phrase={"Appliquez sur des appels d’offres de clients."} />
+                <Image className={"md:w-8/12 mb-[25px] md:mb-[45px] self-center"} src={HomePageIcons} alt={"icons"} />
+                <div className={"flex flex-col md:flex-row md:justify-between lg:justify-around mb-[35px] md:mb-[65px] lg:mb-[112px] space-y-[17px] md:space-y-[0px]"}>
+                    <RegisterButton link={"/avantage-membre/client"} prefix={"Je suis"} type={"CLIENT"} color={"secondary"} position={"left"} phrase={"Obtenez des soumissions de restaurateurs."} />
+                    <RegisterButton link={"/avantage-membre/restaurateur"} prefix={"Je suis"} type={"RESTAURATEUR"} color={"primary"} position={"left"} phrase={"Appliquez sur des appels d’offres de clients."} />
                 </div>
-            </div>
+            </Section>
         </div>
     )
 }

@@ -1,8 +1,10 @@
 "use client"
 
-import {Context, createContext, ReactElement, useState} from "react";
+import {createContext, ReactElement, useEffect, useState} from "react";
 
 import PreLaunchModal from "@/components/modals/preLaunchModal";
+import { redirect } from 'next/navigation';
+import {RedirectType} from "next/dist/client/components/redirect";
 import {useRouter} from "next/navigation";
 
 export const LaunchContext = createContext({openLaunchModal: ()=>{}, closeLaunchModal: ()=>{}})
@@ -12,10 +14,12 @@ export function LaunchProvider({children} : {children: ReactElement[]}){
     const router = useRouter()
     const [isLaunchModalOpen, setIsLaunchModalOpen] = useState(false);
 
+
     const closeLaunchModal = () => {
-        console.log("Close")
-        setIsLaunchModalOpen(false);
-        router.push("/");
+        if(isLaunchModalOpen){
+            setIsLaunchModalOpen(false)
+            router.push("/");
+        }
     }
 
     const openLaunchModal = () => {

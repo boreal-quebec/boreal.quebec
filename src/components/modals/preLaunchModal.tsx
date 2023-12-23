@@ -13,21 +13,20 @@ const PreLaunchModal = ({onClickClose} : PreLaunchModalProps) => {
     return (
         <div className={"p-5 fixed inset-0 h-full w-full bg-black bg-opacity-50 z-10"}>
             <div className={"flex z-10 min-h-screen items-center justify-center"}>
-                <div className={"flex flex-col bg-cyan rounded-5xl space-y-10"}>
-                    <div className={"p-10 bg-cyan-light rounded-t-5xl"}>
+                <div className={"flex flex-col bg-cyan rounded-5xl"}>
+                    <div className={"bg-cyan-light rounded-t-5xl p-5"}>
                         <div onClick={() => onClickClose()} className={"flex cursor-pointer justify-end"}>X</div>
-                        <div className={"flex flex-col items-center bg-cyan-light"}>
-                            <h1 className={"text-white font-medium text-center text-2xl tracking-widest md:text-3xl px-8"}>Lancement de la plateforme</h1>
-                            <h1 className={"text-white font-medium text-center text-2xl tracking-widest md:text-3xl px-8"}>en mars 2024!</h1>
+                        <div className={"flex items-center justify-center bg-cyan-light rounded-t-5xl px-[53px]"}>
+                            <h1 className={"text-primary font-bold text-center text-launchModalTitle tracking-title"}>Lancement officiel de la plateforme<br/> prévu au printemps 2024</h1>
                         </div>
                     </div>
-                    <div className={"flex flex-col items-center rounded-b-5xl p-10"}>
-                        <div className={"text-white text-xl w-2/3 text-center tracking-widest"}>Notre belle équipe travaille sans relâche afin de vous offrir un accès complet à la plateforme boreal.quebec dès le printemps 2024.</div>
-                        <div className={"text-primary-800 text-xl bg-cyan w-2/3 text-center tracking-widest mt-7 mb-20"}>Contactez-nous pour toutes questions</div>
-                        <div className={"text-primary text-3xl text-center font-bold tracking-widest mb-7"}>Me prévenir par courriel de son lancement</div>
-                        <div className={"text-primary-800 w-2/3 text-center tracking-widest"}>
-                            <SubscribeNewsletter />
+                    <div className={"flex flex-col items-center justify-center rounded-b-5xl p-5"}>
+                        <div className={"flex flex-col items-center text-center p-5 px-[87px]"}>
+                            <p className={"flex text-white text-launchModalText tracking-title"}>Notre belle équipe travaille sans relâche afin de vous <br/>offrir un accès complet à la plateforme boreal.quebec<br/>dès le printemps 2024.</p>
                         </div>
+                        <p className={"flex text-primary-800 font-semibold bg-cyan text-center text-launchModalTextCallToAction tracking-title"}>Contactez-nous pour toutes questions</p>
+                        <p className={"flex text-primary text-center font-bold text-launchModalTextPrevenir mt-7 mb-2 tracking-title"}>Me prévenir par courriel de son lancement</p>
+                        <SubscribeNewsletter />
                     </div>
                 </div>
             </div>

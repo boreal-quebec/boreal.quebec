@@ -13,7 +13,7 @@ import {LaunchContext} from "@/components/launchContext";
 export default function Botin() {
 
     let {openLaunchModal, closeLaunchModal} = useContext(LaunchContext);
-    openLaunchModal();
+    //openLaunchModal();
 
     //const [results, setResults] = useState<RestaurantData[] | undefined>(undefined)
     const [search, setSearch]= useState({})

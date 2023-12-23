@@ -2,19 +2,19 @@
 
 export default [
     {
-        title: "efficace",
-        paragraph: "Gagnez du temps. En quelques clics, recevez des soumissions ou postulez sur des contrats."
+        title: "Efficace",
+        paragraph: "Gagnez du temps. Recevez rapidement des soumissions ou postulez facilement sur des contrats."
     },
     {
-        title: "aucune commission",
-        paragraph: "Aucune redevance ou pourcentage. C’est entre le restaurateur et le client que ça se joue."
+        title: "Sans commission",
+        paragraph: "Gardez votre indépendance. Aucune redevance ni commission sur les contrats."
     },
     {
-        title: "simple",
-        paragraph: "Aucun intermédiaire. Aucun engagement. Aucun malentendu."
+        title: "Simple",
+        paragraph: "Aucun intermédiaire. Aucun engagement. Gardez le contrôle."
     },
     {
-        title: "gratuit",
+        title: "Gratuit",
         paragraph: "Publiez des appels d’offres ou figurez dans le bottin sans aucun frais."
     },
 ]

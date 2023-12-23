@@ -20,16 +20,16 @@ export default function AppelOffer() {
     const [appelOffreId, setAppelOffreId] = useState("")
 
     const offres = [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
+        {id:1},
+        {id:2},
+        {id:3},
+        {id:4},
+        {id:5},
+        {id:6},
+        {id:7},
+        {id:8},
+        {id:9},
+        {id:10},
     ]
 
     const onAppelOffreClicked = (id: string) => {
@@ -43,7 +43,7 @@ export default function AppelOffer() {
     }
 
     const cardSpacing = "space-y-5";
-    const appelOffreCards = offres.map((o) => <AppelOffreCard onClick={onAppelOffreClicked}/>)
+    const appelOffreCards = offres.map((o) => <AppelOffreCard key={o.id} onClick={onAppelOffreClicked}/>)
 
     const publishButton = (
         <BigButton

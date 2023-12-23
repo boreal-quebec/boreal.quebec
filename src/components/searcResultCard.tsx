@@ -7,9 +7,9 @@ import {useRestaurantContext} from "@/components/contexts/RestaurantContext";
 
 const SearchResultCard = () => {
     const {restaurant}  = useRestaurantContext();
-    console.log(restaurant.products)
-    const servicesList = restaurant.services.map((service) => (<li>{service.name}</li>))
-    const productsList = restaurant.products.map((product) => (<li>{product.name}</li>))
+
+    const servicesList = restaurant.services.map((service) => (<li key={service.name}>{service.name}</li>))
+    const productsList = restaurant.products.map((product) => (<li key={product.name}>{product.name}</li>))
 
     return (
         <div className={"flex flex-col items-stretch bg-white rounded-3xl shadow-xl shadow-gray-600"}>
@@ -18,35 +18,35 @@ const SearchResultCard = () => {
             </div>
             <div className={"px-10 py-6 flex flex-col space-y-4"}>
                 <div className={"flex"}>
-                    <h1 className={"flex grow text-secondary text-2xl whitespace-normal"}>{restaurant.name}</h1>
+                    <h1 className={"flex grow text-secondary text-cardTitle whitespace-normal"}>{restaurant.name}</h1>
                     <div className={"min-w-fit"}>
-                        <FontAwesomeIcon className={"text-primary"} icon={faStarSolid} />
-                        <FontAwesomeIcon className={"text-primary"} icon={faStarSolid} />
-                        <FontAwesomeIcon className={"text-primary"} icon={faStarSolid} />
-                        <FontAwesomeIcon className={"text-primary"} icon={faStarSolid} />
-                        <FontAwesomeIcon className={"text-primary"} icon={faStarSolid} />
+                        <FontAwesomeIcon className={"text-primary text-cardServicesTitle"} icon={faStarSolid} />
+                        <FontAwesomeIcon className={"text-primary text-cardServicesTitle"} icon={faStarSolid} />
+                        <FontAwesomeIcon className={"text-primary text-cardServicesTitle"} icon={faStarSolid} />
+                        <FontAwesomeIcon className={"text-primary text-cardServicesTitle"} icon={faStarSolid} />
+                        <FontAwesomeIcon className={"text-primary text-cardServicesTitle"} icon={faStarSolid} />
                     </div>
                 </div>
-                <div className={"text-primary border-b-2 border-primary"}>
+                <div className={"text-primary text-cardCritere border-b-2 border-primary"}>
                     <ul>
                         <li>critère varié 1</li>
                         <li>critère varié 2</li>
                         <li>critère varié 3</li>
                     </ul>
                 </div>
-                <div className={"text-primary"}>
+                <div className={"text-primary text-cardServicesTitle"}>
                     <p>type(s) de service</p>
                     <ul>
                         {servicesList}
                     </ul>
                 </div>
-                <div className={"text-primary"}>
+                <div className={"text-primary text-cardServicesTitle"}>
                     <p>type(s) de produits</p>
                     <ul>
                         {productsList}
                     </ul>
                 </div>
-                <div className={"text-primary justify-self-end"}>
+                <div className={"text-primary justify-self-end text-cardServicesTitle"}>
                     <p>Entreprise basée à Montréal</p>
                 </div>
             </div>

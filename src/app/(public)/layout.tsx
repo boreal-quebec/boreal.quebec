@@ -6,10 +6,11 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import React from "react";
 import {NextAuthProvider} from "@/app/provider";
-import {LaunchContext, LaunchProvider} from "@/components/launchContext";
+import {LaunchProvider} from "@/components/launchContext";
 import StickyHeader from "@/components/layout/stickyHeader";
 import Navbar from "@/components/menus/navbar";
 import Footer from "@/components/layout/footer";
+
 config.autoAddCss = false
 
 
@@ -29,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={"font-helvetica"}>
       <NextAuthProvider>
           <LaunchProvider>
               <StickyHeader />
